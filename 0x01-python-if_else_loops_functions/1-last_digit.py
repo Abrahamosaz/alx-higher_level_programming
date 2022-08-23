@@ -13,6 +13,6 @@ if (check_sig):
 if (lastd > 5):
     print("Last digit of %d is %d and is greater than 5" % (n, lastd))
 elif (lastd == 0):
-    print("last digit of %d is %d and is 0" % (n, lastd))
+    print("Last digit of %d is %d and is 0" % (n, lastd))
 elif (lastd < 6 and lastd != 0):
     print(f"Last digit of {n:d} is {lastd:d} and is less than 6 and not 0")
