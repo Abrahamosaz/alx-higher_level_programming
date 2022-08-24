@@ -9,9 +9,18 @@
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *dir = *head, *temp = NULL, *trans = *head, *new = NULL;
+	int find = 0;
 
-	if (!head)
+	new = malloc(sizeof(new));
+	if (!new)
 		return (NULL);
+	new->n = number;
+	new->next = NULL;
+	if (!head)
+	{
+		*head = new;
+		return (new);
+	}
 	while (dir)
 	{
 		if (dir->n > number)
@@ -22,16 +31,20 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		if (trans->next == dir)
 		{
+			find = 1;
 			temp = trans;
 			break;
 		}
 		trans = trans->next;
 	}
-	new = malloc(sizeof(new));
-	if (!new)
-		return (NULL);
-	new->n = number;
-	temp->next = new;
-	new->next = dir;
-	return (new);
+	if (find)
+	{
+		temp->next = new;
+		new->next = dir;
+		return (new);
+	} else
+	{
+		trans->next = new;
+		return (new);
+	}		
 }
