@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-import sys
-import calculator_1 as cal
-
-
-def simple_cal():
-    count = len(sys.argv)
+def simple_cal(argv, exit, cal):
+    count = len(argv)
     if (count < 3):
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
     else:
-        a = int(sys.argv[1])
-        b = int(sys.argv[3])
-        operator = sys.argv[2]
+        a = int(argv[1])
+        b = int(argv[3])
+        operator = argv[2]
         if (operator == '+'):
             print("{0:d} + {1:d} = {2:d}".format(a, b, cal.add(a, b)))
         elif (operator == '-'):
@@ -22,8 +18,10 @@ def simple_cal():
             print("{0:d} / {1:d} = {2:d}".format(a, b, cal.div(a, b)))
         else:
             print("Unknown operator. Available operators: +, -, * and /")
-            sys.exit(1)
+            exit(1)
 
 
 if __name__ == "__main__":
-    simple_cal()
+    import sys
+    import calculator_1 as cal
+    simple_cal(sys.argv, sys.exit, cal)

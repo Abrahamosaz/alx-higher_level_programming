@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-import sys
-
-
-def add_values():
+def add_values(argv):
     count = 0
-    for i in range(len(sys.argv)):
+    for i in range(len(argv)):
         count += 1
     sum_val = 0
     idx = 1
     while count != 1:
-        sum_val += int(sys.argv[idx])
+        sum_val += int(argv[idx])
         idx += 1
         count -= 1
+    print(sum_val)
 
 
 if __name__ == "__main__":
-    print(sum_val)
+    import sys
+    add_values(sys.argv)
