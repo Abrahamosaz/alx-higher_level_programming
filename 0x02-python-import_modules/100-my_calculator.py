@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def simple_cal(sys, cal):
     count = len(sys.argv)
-    if (count < 3):
+    if (count != 3):
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
     else:
