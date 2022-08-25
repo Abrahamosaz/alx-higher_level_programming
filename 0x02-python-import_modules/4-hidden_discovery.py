@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-def discovr(hidden_4):
+import hidden_4
+
+
+def discovr():
     name = dir(hidden_4)
     for i in name:
         if i[:2] != '--':
@@ -7,5 +10,4 @@ def discovr(hidden_4):
 
 
 if __name__ == "__main__":
-    import hidden_4
-    discovr(hidden_4)
+    discovr()
