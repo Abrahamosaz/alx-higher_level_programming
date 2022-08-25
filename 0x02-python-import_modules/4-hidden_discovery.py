@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def discover():
+def discovr():
     name = dir(hidden_4)
     for i in name:
         if i[:2] != '--':
@@ -8,4 +8,4 @@ def discover():
 
 if __name__ == "__main__":
     import hidden_4
-    discover(hidden_4)
+    discovr(hidden_4)
