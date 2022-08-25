@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def discovr():
+def discovr(hidden_4):
     name = dir(hidden_4)
     for i in name:
         if i[:2] != '--':
