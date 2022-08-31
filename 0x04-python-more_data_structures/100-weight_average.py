@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 def weight_average(my_list=[]):
+    if not my_list:
+        return (0)
     div_value = 0
     sum_value = 0
     for tuple_av in my_list:
