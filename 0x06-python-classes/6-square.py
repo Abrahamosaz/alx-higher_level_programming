@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 
+"""Define a class square"""
+
 
 class Square:
     """creating a class square"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """initialize the atrribute of a class insatnce"""
+        """initialize the atrribute of a class instance
+        Args:
+            size (int): The size of the new square.
+        """
         self.__size = size
         self.__position = position
 
@@ -21,8 +26,7 @@ class Square:
             raise TypeError("size must be integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -37,8 +41,7 @@ class Square:
                 not isinstance(value[1], int)):
             raise TypeError("position must be a tuple of two \
                     positive integers")
-        else:
-            self.__position = value
+        self.__position = value
 
     def area(self):
         """return  the area of the class instance"""
