@@ -23,7 +23,7 @@ class Node:
     @data.setter
     def data(self, value):
         if (type(value) != int):
-            raise TypeError("data must be integer")
+            raise TypeError("data must be an integer")
         else:
             self.__data = value
 
