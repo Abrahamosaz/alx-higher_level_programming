@@ -1,0 +1,64 @@
+Doctest for ``add_integer`` function
+====================================
+
+Test case for integer values as argument to fthe function
+>>> add_integer_func =  __import__("0-add_integer").add_integer
+
+
+use thre function for testing for the length of the docstring
+>>> len(__import__("0-add_integer").__doc__) > 5
+True
+>>> len(add_integer_func.__doc__) > 3
+True
+
+
+use the funtion for testing for integer numbers passed to the function
+>>> add_integer_func(1, 3)
+4
+>>> add_integer_func(4, 5)
+9
+>>> add_integer_func(1000000000000, 1)
+1000000000001
+>>> add_integer_func(1)
+99
+
+
+use the funtion for testing string passed to the funtion
+>>> add_integer_func(1, "abraham")
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+>>> add_integer_func("c", 4)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+
+use the function for testing boolen value passed to the function
+>>> add_integer_func(True, 4)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+>>> add_integer_func(3, False)
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+
+
+use the function for testing for float values passed to tehe function
+>>> add_integer_func(2.0, 3)
+5
+>>> add_integer_func(3.4, 6.5)
+9
+>>> add_integer_func(5.1, 9)
+14
+
+use function for testig for incorrect argument passed to the function
+>>> add_integer_func()
+Traceback (most recent call last):
+	...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer_func(1, 3, 6)
+Traceback (most recent call last):
+	...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given

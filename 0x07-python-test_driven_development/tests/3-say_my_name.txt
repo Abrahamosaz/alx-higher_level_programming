@@ -1,0 +1,36 @@
+Doctest for ``say_my_name`` fucntion
+====================================
+
+import the function
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+
+Test case for doctstring for the module and function
+>>> len(__import__("3-say_my_name").say_my_name.__doc__) > 1
+True
+>>> len(__import__("3-say_my_name").__doc__) > 1
+True
+
+
+Test case for the fucntion when the argumenet passed is not a string
+>>> say_my_name(1, "osazee")
+Traceback (most recent call last):
+	...
+TypeError: first name must be a string
+>>> say_my_name("abraham", 4.4)
+Traceback (most recent call last):
+	...
+TypeError: last name must be a string
+>>> say_my_name(3.34, 56.34)
+Traceback (most recent call last):
+	...
+TypeError: first name must be a string
+
+
+Test case of function with correct datatype passed the function
+>>> say_my_name("abraham", "osazee")
+my name is abraham osazee
+>>> say_my_name("john", "smith")
+my name is john smith
+>>> say_my_name("Bob")
+my name is Bob 

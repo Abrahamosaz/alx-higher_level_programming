@@ -1,0 +1,64 @@
+Doctest for ``printt_square`` function
+=====================================
+
+import the function
+>>> print_square = __import__("4-print_square").print_square
+
+
+Test for the docstring of the module adnnd function
+>>> len(__import__("4-print_square").print_square.__doc__) > 1
+True
+>>> len(__import__("4-print_square").__doc__) > 1
+True
+
+
+Test for case of correct output to the stdout
+>>> print_square(4)
+####
+####
+####
+####
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+
+Test case for incorrect data type passed to the function
+>>> print_square("c")
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+>>> print_square("osazee")
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+
+
+Test for case of the function when the size is less than 0
+>>> print_square(-1)
+Traceback (most recent call last):
+	...
+ValueError: size must be >= 0
+>>> print_square(-5555555555555555)
+Traceback (most recent call last):
+	...
+ValueError: size must be >= 0
+
+
+Test for cases when the value of the size < 0 and a float
+>>> print_square(4.5)
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+>>> print_square(-2.4)
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
