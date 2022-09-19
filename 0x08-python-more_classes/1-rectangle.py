@@ -7,13 +7,14 @@
 class Rectangle:
     """
         class type that represent a Rectangle
-
-        __init__: initialise the class with instance attribute
-        Args:
-            width (int): width of the Rectangle
-            heigth (int): heigth of the rectangle
     """
     def __init__(self, width=0, height=0):
+        """
+            initialize the class instances
+            Args:
+                width (int): width of the rectangle
+                height (int): height of the rectangle
+        """
         self.__width = width
         self.__height = height
 
