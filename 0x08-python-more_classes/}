@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+"""
+    Rectangle class
+"""
+
+
+class Rectangle:
+    """
+        class type that represent a Rectangle
+
+        __init__: initialise the class with instance attribute
+        Args:
+            width (int): width of the Rectangle 
+            heigth (int): heigth of the rectangle
+    """
+    def __init__(self, width=0, heigth=0):
+        self.__width = width
+        self.__heigth = heigth
+
+    @property
+    def width(self):
+        """ retrieve the width of the rectangle
+        """
+        return (self.__width)
+    
+    @width.setter
+    def width(self, value):
+        if (type(value) is not int):
+            raise TypeError("width must be an integer")
+        elif (width < 0):
+            raise ValueError("width must be >= 0")
+        self.__width = value
+
+    @property
+    def heigth(self):
+        """
+            return the heigth of the rectangle
+        """
+        return (self.__heigth)
+
+    @heigth.setter
+    def heigth(self, value):
+        if (type(value) is not int):
+            raise TypeError("height must be an integer")
+        elif (value < 0):
+            raise ValueError("height must be >= 0")
