@@ -66,12 +66,10 @@ class TestMaxInteger(unittest.TestCase):
             max_integer([1, 5, "c"])
         with self.assertRaises(TypeError):
             max_integer(["osazee", 4])
-        with self.assertRaises(TypeError):
-            max_integer(None)
 
     def test_type_result(self):
         """
-            test for tge return type of the function
+            test for the return type of the function
         """
         self.assertIsInstance(max_integer([3, 5]), int)
         self.assertTrue(type(max_integer([5, 7])) is int)

@@ -21,6 +21,8 @@ use the funtion for testing for integer numbers passed to the function
 1000000000001
 >>> add_integer_func(1)
 99
+>>> add_integer_func(-3, 3)
+0
 
 
 use the funtion for testing string passed to the funtion
@@ -45,15 +47,20 @@ Traceback (most recent call last):
 TypeError: b must be an integer
 
 
-use the function for testing for float values passed to tehe function
+use the function for testing for float values passed to the function
 >>> add_integer_func(2.0, 3)
 5
 >>> add_integer_func(3.4, 6.5)
 9
 >>> add_integer_func(5.1, 9)
 14
+>>> add_integer_func(4.3, float("NaN"))
+Traceback (most recent call last):
+	...
+ValueError: cannot convert float NaN to integer
 
-use function for testig for incorrect argument passed to the function
+
+use function for testing for incorrect argument passed to the function
 >>> add_integer_func()
 Traceback (most recent call last):
 	...
@@ -62,3 +69,18 @@ TypeError: add_integer() missing 1 required positional argument: 'a'
 Traceback (most recent call last):
 	...
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+
+use function for testing for incorrect type passed to the function
+>>> add_integer_func(3, [2])
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+>>> add_integer_func({'key': 3}, 5)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+>>> add_integer_func({2,}, [4])
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer

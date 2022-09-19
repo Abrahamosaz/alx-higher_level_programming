@@ -6,23 +6,21 @@ Args: is as string of text words otherwise raise error
 """
 
 
-def text_indentation(text: str):
-    """"
-    function that print text with two new line base on some charcters
-    """
-    if not isinstance(text, str):
+def text_indentation(text):
+    """splits a text into lines along "?", ":", "." followed by 2 new lines"""
+    if type(text) is not str:
         raise TypeError("text must be a string")
-    idx = 0
-    while (idx < len(text)):
-        if (text[idx] == '.' or text[idx] == '?' or
-                text[idx] == ':'):
-            print(text[idx], end='')
-            try:
-                if (text[idx + 1] == ' '):
-                    idx += 1
-            except IndexError:
-                break
-            print("\n")
-        else:
-            print(text[idx], end='')
-        idx += 1
+    flag = 0
+    for a in text:
+        if flag == 0:
+            if a == ' ':
+                continue
+            else:
+                flag = 1
+        if flag == 1:
+            if a == '?' or a == '.' or a == ':':
+                print(a)
+                print()
+                flag = 0
+            else:
+                print(a, end="")
