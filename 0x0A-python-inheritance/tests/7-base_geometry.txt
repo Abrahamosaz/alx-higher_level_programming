@@ -1,0 +1,49 @@
+doctest for ``BaseGeometry class``
+=================================
+import class
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> len(BaseGeometry.__doc__) > 1
+True
+>>> len(__import__("7-base_geometry").__doc__) > 1
+True
+>>> len(__import__("7-base_geometry").BaseGeometry.area.__doc__) > 1
+True
+>>> len(__import__("7-base_geometry").BaseGeometry.integer_validator.__doc__) > 1
+True
+
+Test for the accuracy of the function
+=====================================
+>>> base = BaseGeometry()
+>>> base.integer_validator("width", 89)
+>>> base.area #doctest: +ELLIPSIS
+<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at 0x...>>
+>>> base.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
+>>> base.integer_validator("width", 57)
+>>> base.integer_validator("height", "c")
+Traceback (most recent call last):
+	...
+TypeError: height must be integer
+>>> base.integer_validator("height", -3)
+Traceback (most recent call last):
+	...
+ValueError: height must be greater than 0
+>>> base.integer_validator("width", True)
+Traceback (most recent call last):
+	...
+TypeError: width must be integer
+>>> base.integer_validator("height", 0)
+>>> base.area(5)
+Traceback (most recent call last):
+	...
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+>>> base.area("osazee")
+Traceback (most recent call last):
+	...
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+>>> base.integer_validator("height")
+Traceback (most recent call last):
+	...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
