@@ -1,58 +1,46 @@
 #!/usr/bin/python3
 """
-    class sqaure
+This module contains the "Square" class
 """
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """
-        square class inherit from rectangle class
-    """
+    """A representation of a square"""
     def __init__(self, size, x=0, y=0, id=None):
-        """
-            initailze class instances
-            Args:
-                size (int): size of the sqaure
-                x (int): x coordinate of the square
-                y (int); y coordinate of the square
-        """
+        """initializes the square"""
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        """
-            return the string representation of the square class
-        """
-        return ("[" + str(self.__class__.__name__) + "] " + "(" +
-                str(self.id) + ") " + str(self.x) + "/" + str(self.y) +
-                " - " + str(self.width))
+        self.size = size
 
     @property
     def size(self):
-        """
-            return the size of the square
-        """
-        return (self.width)
+        """getter for size"""
+        return self.width
 
     @size.setter
     def size(self, value):
-        if self.integer_validator("width", value):
-            self.width = value
+        """setter for size"""
+        self.width = value
+        self.height = value
+
+    def __str__(self):
+        """informal string representation of the square"""
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
+                                                         self.y, self.width)
 
     def update(self, *args, **kwargs):
-        """
-            update the values of the class instances
-        """
+        """update attributes"""
         if len(args):
-            for idx, value in enumerate(args, start=1):
-                if idx == 1:
-                    self.id = value
-                elif idx == 2:
-                    self.size = value
-                elif idx == 3:
-                    self.x = value
-                else:
-                    self.y = value
+            for i, a in enumerate(args):
+                if i == 0:
+                    self.id = a
+                elif i == 1:
+                    self.size = a
+                elif i == 2:
+                    self.x = a
+                elif i == 3:
+                    self.y = a
         else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
@@ -64,12 +52,10 @@ class Square(Rectangle):
                 self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """
-            return the dict attribute of the instance
-        """
-        __dict__ = {}
-        __dict__["id"] = self.id
-        __dict__["size"] = self.id
-        __dict__["x"] = self.x
-        __dict__["y"] = self.y
-        return (__dict__)
+        """dictionary representation of a Square"""
+        d = {}
+        d["id"] = self.id
+        d["size"] = self.size
+        d["x"] = self.x
+        d["y"] = self.y
+        return
