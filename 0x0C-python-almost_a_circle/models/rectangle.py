@@ -98,6 +98,9 @@ class Rectangle(Base):
         return (self.width * self.height)
 
     def display(self):
+        """
+            dsiplay the rectangle shape with '#'
+        """
         [print() for x in range(self.y)]
         for i in range(self.height):
             [print(' ', end="") for y in range(self.x)]
@@ -118,7 +121,7 @@ class Rectangle(Base):
         """
             update the class attribute with args and kwargs
         """
-        if args:
+        if len(args):
             for index, value in enumerate(args, start=1):
                 if index == 1:
                     self.id = value
@@ -130,7 +133,7 @@ class Rectangle(Base):
                     self.x = value
                 else:
                     self.y = value
-        if not args and kwargs:
+        else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
             if "width" in kwargs:

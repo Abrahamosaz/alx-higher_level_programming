@@ -40,7 +40,10 @@ class Square(Rectangle):
             self.width = value
 
     def update(self, *args, **kwargs):
-        if args:
+        """
+            update the values of the class instances
+        """
+        if len(args):
             for idx, value in enumerate(args, start=1):
                 if idx == 1:
                     self.id = value
@@ -50,7 +53,7 @@ class Square(Rectangle):
                     self.x = value
                 else:
                     self.y = value
-        elif not args and kwargs:
+        else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
             if "size" in kwargs:
@@ -61,6 +64,9 @@ class Square(Rectangle):
                 self.y = kwargs["y"]
 
     def to_dictionary(self):
+        """
+            return the dict attribute of the instance
+        """
         __dict__ = {}
         __dict__["id"] = self.id
         __dict__["size"] = self.id
