@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+"""retrieve data from the mysql database server where name matches the command
+line argument"""
+
+
+def match_states(username, password, db, state_string):
+    """function that return the the data from the database that state column name
+    matches the state_string"""
+    db_engine = MySQLdb.connect(
+            host='localhost',
+            user=username,
+            password=password,
+            database=db
+            )
+    conn = db_engine.cursor()
+    conn.execute("SELECT * FROM states WHERE name = New York")
+    return conn.fetchall()
+
+if __name__ == "__main__":
+    import MySQLdb
+    import sys
+    result = match_states(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    for data in result:
+        print(data)
