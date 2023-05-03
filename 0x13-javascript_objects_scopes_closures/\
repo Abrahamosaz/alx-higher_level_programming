@@ -1,0 +1,16 @@
+#!/usr/bin/node
+
+const fsPromise = require('fs').promise;
+
+async function readFile (filePath) {
+  try {
+    const file = await fsPromise.open(filePath);
+    const fsResponse = await file.readFile('utf-8');
+    console.log(fsResponse);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+readFile('./fileA');

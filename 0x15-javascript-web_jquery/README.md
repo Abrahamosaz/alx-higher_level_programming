@@ -1,1 +1,0 @@
-intoduction to jquery

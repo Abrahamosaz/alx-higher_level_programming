@@ -15,5 +15,4 @@ async function readWriteFile (readPathA, readPathB, writePath) {
     console.log(err);
   }
 }
-
 readWriteFile(process.argv[2], process.argv[3], process.argv[4]);
